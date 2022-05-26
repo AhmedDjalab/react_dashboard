@@ -22,9 +22,10 @@ import {
   ColorMapping,
   Editor,
 } from "./pages";
+import { useStateContext } from "./contexts/ContextProvider";
 
 const App = () => {
-  const activeMenu = true;
+  const { activeMenu } = useStateContext();
   return (
     <div>
       <BrowserRouter>
@@ -50,7 +51,7 @@ const App = () => {
               <Sidebar />
             </div>
           )}
-          //! navigation bar
+
           <div
             className={`dark:bg-main-bg bg-main-bg min-h-screen w-full 
               ${activeMenu ? "md:ml-72" : "flex-2"}`}
