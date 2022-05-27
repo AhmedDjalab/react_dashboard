@@ -20,7 +20,7 @@ const SideBar = () => {
  }
 
 
- const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';
+ const activeLink = 'flex bg-blue-200 items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';
  const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
   return (
     <div className='h-screen pb-10 ml-3 overflow-auto md:overflow-hidden md:hover:overflow-auto'>
@@ -30,7 +30,7 @@ const SideBar = () => {
   <div className='flex items-center justify-between'>
     
    <Link to="/" onClick={handleCloseSideBar} 
-   className='flex items-center gap-3 mt-4 ml-3 text-xl font-extrabold tracking-tight dark:text-white text-slate-900 '
+   className='flex items-center gap-3 mt-4 ml-3 text-xl font-extrabold tracking-tight dark:text-white text-slate-900'
    >
       <SiShopware /> <span>Shoppy</span>
 
@@ -50,24 +50,24 @@ const SideBar = () => {
 
   <div className='mt-10 '>
 {
-  links.map((link)=> (
-   <div key={link.title}>
+  links.map((item)=> (
+   <div key={item.title}>
      <p className='m-3 mt-4 text-gray-400 uppercase'>
-       {link.title}
+       {item.title}
        </p>
        {
-       link.links.map((item)=> (
+       item.links.map((link)=> (
          <NavLink
-         to={`${item.name}`}
-         key={item.name}
+         to={`${link.name}`}
+         key={link.name}
          onClick={handleCloseSideBar}
          className={({isActive}) => ( isActive ? activeLink : normalLink)}
           
         
          >
-  {item.icon}
+  {link.icon}
   <span className='capitalize'> 
-  {item.name}
+  {link.name}
   </span>
          </NavLink>
        ))
